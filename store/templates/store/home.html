@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+{% load cart_filters %}
+{% load humanize %}
+{% csrf_token %}
+
+
+
+
+
+{% block content %}
+<h2>Sản phẩm nổi bật</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+{% for product in products %}
+
+<div class="product">
+    <h3>{{ product.name }}</h3>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <p>{{ product.description }}</p>
+    <p><strong>{{ product.price|floatformat:0|intcomma }} ₫</strong></p>
+    <a class="btn" href="{% url 'product_detail' product.id %}">Xem chi tiết</a>
+
+    <form method="post" action="{% url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+        <button type="submit">Thêm vào giỏ</button>
+    </form>
+
+    
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

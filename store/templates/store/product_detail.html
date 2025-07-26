@@ -1,0 +1,15 @@
+
+{% extends 'store/base.html' %}
+{% load cart_filters %}
+{% load humanize %}
+{% csrf_token %}
+
+
+{% block content %}
+  <h2>{{ product.name }}</h2>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 300px;">
+  <p>{{ product.description }}</p>
+  <p><strong>{{ product.price|floatformat:0|intcomma }} ₫</strong></p>
+
+  <a href="{% url 'add_to_cart' product.id %}">🛒 Thêm vào giỏ hàng</a>
+{% endblock %}

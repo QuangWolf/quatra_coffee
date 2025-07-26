@@ -1,0 +1,109 @@
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quatra Coffee</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #faf7f1;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        nav {
+            background-color: #654321;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            color: #5a2d0c;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        form input, form textarea, form button, form select {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        form button {
+            background-color: #654321;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #402108;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            background-color: #654321;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #402108;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>☕ Quatra Coffee</h1>
+        <p>Thưởng thức hương vị cà phê nguyên chất mỗi ngày</p>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">Trang chủ</a>
+        <a href="{% url 'cart' %}">Giỏ hàng</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Đăng xuất</a>
+        {% else %}
+            <a href="{% url 'login' %}">Đăng nhập</a>
+            <a href="{% url 'register' %}">Đăng ký</a>
+        {% endif %}
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

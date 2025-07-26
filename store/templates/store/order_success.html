@@ -1,0 +1,9 @@
+{% extends 'store/base.html' %}
+{% csrf_token %}
+
+
+{% block content %}
+<h2>🎉 Đặt hàng thành công!</h2>
+<p>Cảm ơn bạn đã mua hàng tại Quatra Coffee.</p>
+<a href="{% url 'home' %}">Về trang chủ</a>
+{% endblock %}
