@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: quatra-coffee
+    env: python
+    buildCommand: "chmod +x build.sh && ./build.sh"
+    startCommand: "gunicorn quatra_coffee.wsgi:application --bind 0.0.0.0:8000"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: quatra_coffee.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: ALLOWED_HOSTS
+        value: your-app-name.onrender.com
