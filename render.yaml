@@ -8,6 +8,6 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: quatra_coffee.settings
       - key: SECRET_KEY
-        value: your-secret-key
+        value: d@j87tg@)@8o3+i%cuc#_0u!tpg0au9pi_wc4*=p4&ak&wno(z
       - key: ALLOWED_HOSTS
         value: quatra-coffee.onrender.com
