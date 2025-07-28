@@ -1,1 +1,1 @@
-web: gunicorn quatra_coffee.wsgi
+web: gunicorn quatra_coffee.wsgi:application

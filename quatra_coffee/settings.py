@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a78l(ay4wbpmflrh)lr1!wy4!i3q0gni@g#3tqi6q5)@*y_i0e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'quatra-coffee.onrender.com']
 CSRF_TRUSTED_ORIGINS = [
     'http://192.168.52.20',
 ]
@@ -80,15 +80,11 @@ WSGI_APPLICATION = 'quatra_coffee.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quatra_db',
-        'USER': 'quatra_user',
-        'PASSWORD': '123456',
-        'HOST': '192.168.52.30',  # IP máy database-server
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
