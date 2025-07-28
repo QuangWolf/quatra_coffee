@@ -1,6 +1,7 @@
 services:
   - type: web
     name: quatra-coffee
+    env: python
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn quatra_coffee.wsgi:application --bind 0.0.0.0:8000"
@@ -12,4 +13,6 @@ services:
       - key: ALLOWED_HOSTS
         value: quatra-coffee.onrender.com
       - key: DATABASE_URL
-        value: postgresql://quatra:MpDlAP0mtBblTHxih9NelIKXJ1hr7kf2@dpg-d234ecvdiees7399q5eg-a/quatra_coffee_db
+        value: postgresql://quatra:MpDlAP0mtBblTHxih9NelIKXJ1hr7kf2@dpg-d234ecvdiees7399q5eg-a.pg.render.com/quatra_coffee_db
+      - key: DEBUG
+        value: "False"
