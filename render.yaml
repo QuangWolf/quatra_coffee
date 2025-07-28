@@ -11,3 +11,5 @@ services:
         value: d@j87tg@)@8o3+i%cuc#_0u!tpg0au9pi_wc4*=p4&ak&wno(z
       - key: ALLOWED_HOSTS
         value: quatra-coffee.onrender.com
+      - key: DATABASE_URL
+        value: postgresql://quatra:MpDlAP0mtBblTHxih9NelIKXJ1hr7kf2@dpg-d234ecvdiees7399q5eg-a/quatra_coffee_db
